@@ -1,0 +1,22 @@
+﻿<Window x:Class="DemEx2.Event"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemEx2"
+        mc:Ignorable="d"
+        Title="Event" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lbTitleEvent" Content="Название мероприятия" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontFamily="Comic Sans MS"/>
+        <TextBlock x:Name="tblDescription" HorizontalAlignment="Left" Margin="211,72,0,0" TextWrapping="Wrap" Text="Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание " VerticalAlignment="Top" Height="327" Width="547" FontFamily="Comic Sans MS" FontSize="20" FontWeight="Normal"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="100" Margin="15,72,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lbData" Content="Дата" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Width="182" Height="47" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Comic Sans MS" FontWeight="Normal" BorderBrush="Black"/>
+        <Label x:Name="lbCity" Content="Город" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Width="182" Height="47" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Comic Sans MS" FontWeight="Normal" BorderBrush="Black"/>
+        <Label x:Name="lbOrganizer" Content="Организатор" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top" Width="182" Height="47" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Comic Sans MS" FontWeight="Normal" BorderBrush="Black"/>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="15,72,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle HorizontalAlignment="Left" Height="47" Margin="10,199,0,0" Stroke="Black" VerticalAlignment="Top" Width="182" RadiusX="10" RadiusY="10"/>
+        <Rectangle HorizontalAlignment="Left" Height="47" Margin="10,266,0,0" Stroke="Black" VerticalAlignment="Top" Width="182" RadiusX="10" RadiusY="10"/>
+        <Rectangle HorizontalAlignment="Left" Height="47" Margin="10,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="182" RadiusX="10" RadiusY="10"/>
+
+    </Grid>
+</Window>

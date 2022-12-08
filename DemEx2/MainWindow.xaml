@@ -1,0 +1,34 @@
+﻿<Window x:Name="MainSystem" x:Class="DemEx2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemEx2" xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1204" ResizeMode="CanMinimize" Background="White" FontFamily="Comic Sans MS" Loaded="MainSystem_Loaded">
+    <Grid>
+        <Button x:Name="btnRegistrationAutorization" Content="Авторизация&#xA;Регистрация" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="895,10,0,0" VerticalAlignment="Top" Width="92" FontWeight="Bold" Height="44" Foreground="#FF0000CC" FontFamily="Comic Sans MS" Click="btnRegistrationAutorization_Click"/>
+        <DatePicker x:Name="FilterDate" HorizontalAlignment="Left" Margin="192,20,0,0" VerticalAlignment="Top" Width="125" Height="24" FontFamily="Comic Sans MS" SelectedDateFormat="Long" DisplayDate="2022-08-12"/>
+        <ComboBox x:Name="cmbFilterDirection" HorizontalAlignment="Left" Margin="43,20,0,0" VerticalAlignment="Top" Width="125" Height="24" FontFamily="Comic Sans MS">
+
+        </ComboBox>
+        <ListView x:Name="lvEvent" Margin="10,58,10,27" HorizontalAlignment="Center" Foreground="Black" FontFamily="Comic Sans MS">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Логотип"></GridViewColumn>
+                    <GridViewColumn Width="170" Header="Название мероприятия"></GridViewColumn>
+                    <GridViewColumn Width="190" Header="Направление мероприятия"></GridViewColumn>
+                    <GridViewColumn Width="150" Header="Дата"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <!--<ListView.Resources>
+                <col:ArrayList x:Key="Event">
+                    <local:ListEventText Title="Cookie Fest" Direction="IT-конференция" Data="14.10.2022"/>
+                </col:ArrayList>
+            </ListView.Resources>-->
+        </ListView>
+        <DataGrid x:Name="DGDB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="51,58,56,27"/>
+        <Button x:Name="btnFilter" Content="Filter" HorizontalAlignment="Left" Margin="345,20,0,0" VerticalAlignment="Top" Height="24" Width="83" Click="btnFilter_Click"/>
+
+    </Grid>
+</Window>
