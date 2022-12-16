@@ -39,9 +39,16 @@ namespace DemEx2
         private void btnAutorization_Click(object sender, RoutedEventArgs e)
         {
             //string myselectquery = "SELECT * FROM [dbo].[Ychastniki$] WHERE [id_ych]= '" + tbIdNumber.Text + "' and [пароль]='" + PasswordAutor.Password + "'";
-
-            DBConnect.SQLQueryAutorization(tbIdNumber.Text, PasswordAutor.Password);
-
+            bool Autorization;
+            DBConnect.SQLQueryAutorization(tbIdNumber.Text, PasswordAutor.Password, "участники", "Почта", "пароль", out Autorization);
+            if(Autorization == true)
+            {
+				MessageBox.Show("Добро пожаловать!");
+			}
+            else
+            {
+				MessageBox.Show("Ошибка, вы ввели неправильное имя, либо фамиилию, либо отчество");
+			}
             /*using (SqlDataAdapter dataAdapter = new SqlDataAdapter(myselectquery, sqlconn))
             {
                 DataTable table = new DataTable();

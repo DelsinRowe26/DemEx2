@@ -19,58 +19,73 @@ namespace DemEx2
 			sqlConn = new SqlConnection(sql);
 		}
 
-		public static void LoadedDB(string sql, out DataTable dt)
+		public static void LoadedDB(string sql,string nameTable, out DataTable dt)
 		{
+			
 			sqlConn = new SqlConnection(sql);
 
 			sqlConn.Open();
 
-			string Get_Data = "SELECT * FROM [Plan]";
+			string Get_Data = "SELECT * FROM [" + nameTable + "]";
 
 			SqlCommand cmd = sqlConn.CreateCommand();
 			cmd.CommandText = Get_Data;
 
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-			dt = new DataTable("[Plan]");
+			dt = new DataTable("[" + nameTable + "]");
 
 			adapter.Fill(dt);
 		}
 
-		public static void DateFilter(string sql, string Date, out DataTable dt)
+		public static void DateFilter(string sql, string nameTable , string Date, out DataTable dt)
 		{
 			sqlConn = new SqlConnection(sql);
 
 			sqlConn.Open();
 
-			string Get_Data = "SELECT * FROM [Plan] WHERE DATE = " + "'" + Date + "'";
+			string Get_Data = "SELECT * FROM [" + nameTable + "] WHERE DATE = " + "'" + Date + "'";
 			SqlCommand cmd = sqlConn.CreateCommand();
 			cmd.CommandText = Get_Data;
 
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-			dt = new DataTable("[Plan]");
+			dt = new DataTable("[" + nameTable + "]");
 
 			adapter.Fill(dt);
 		}
 
-		public static void SQLQueryAutorization(string id, string password)
+		public static void EventFilter(string sql, string nameTable, string nameEvent, out DataTable dt)
 		{
-			string sqlQuery = "SELECT * FROM [dbo].[участники] WHERE [Почта]= '" + id + "' and [пароль]='" + password + "'";
+			sqlConn = new SqlConnection(sql);
+
+			sqlConn.Open();
+
+			string Get_Data = "SELECT * FROM [" + nameTable + "] WHERE [Событие] = " + "'" + nameEvent + "'";
+			SqlCommand cmd = sqlConn.CreateCommand();
+			cmd.CommandText = Get_Data;
+
+			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+			dt = new DataTable("[" + nameTable + "]");
+
+			adapter.Fill(dt);
+		}
+
+		public static void SQLQueryAutorization(string id, string password, string nameTable, string nameColumnMail, string nameColumnPassword, out bool Autorization)
+		{
+			string sqlQuery = "SELECT * FROM [dbo].[" + nameTable + "] WHERE [" + nameColumnMail + "]= '" + id + "' and [" + nameColumnPassword + "]='" + password + "'";
 			
 			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, sqlConn))
 			{
 				DataTable table = new DataTable();
 
-				dataAdapter.Fill(table);//Вылетает ошибка
+				dataAdapter.Fill(table);
 
 				if (table.Rows.Count == 0)
 				{
-					MessageBox.Show("Ошибка, вы ввели неправильное имя, либо фамиилию, либо отчество");
+					Autorization = false;
 				}
 				else
 				{
-					MessageBox.Show("Добро пожаловать!");
-					/*Form2 newForm = new Form2();
-                    newForm.Show();*/
+					Autorization = true;
 				}
 			}
 		}

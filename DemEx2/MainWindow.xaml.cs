@@ -35,8 +35,15 @@ namespace DemEx2
         private void MainSystem_Loaded(object sender, RoutedEventArgs e)
         {
             string sql = @"Data Source = DESKTOP-R2UPGH3\DR; Initial Catalog = DemExam; Integrated Security = True";
+            string nameTable = "Plan";
             DataTable dt;
-            DBConnect.LoadedDB(sql, out dt);
+            DBConnect.LoadedDB(sql, nameTable , out dt);
+
+            cmbFilterDirection.DisplayMemberPath = "Событие";
+            cmbFilterDirection.ItemsSource = dt.AsDataView();
+            cmbFilterDirection.SelectedIndex = -1;
+
+
             DGDB.ItemsSource = dt.DefaultView;
         }
 
@@ -51,8 +58,23 @@ namespace DemEx2
 			string sql = @"Data Source = DESKTOP-R2UPGH3\DR; Initial Catalog = DemExam; Integrated Security = True";
 			DataTable dt;
             string Date = FilterDate.Text;
-            DBConnect.DateFilter(sql, Date, out dt);
+            string nameTable = "Plan";
+
+			DBConnect.DateFilter(sql, nameTable, Date, out dt);
 			DGDB.ItemsSource = dt.DefaultView;
 		}
+
+		private void cmbFilterDirection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			string sql = @"Data Source = DESKTOP-R2UPGH3\DR; Initial Catalog = DemExam; Integrated Security = True";
+			DataTable dt;
+			string nameEvent = cmbFilterDirection.Text;
+			string nameTable = "Plan";
+
+            DBConnect.EventFilter(sql, nameTable, nameEvent, out dt);
+			DGDB.ItemsSource = dt.DefaultView;
+		}
+
+
 	}
 }

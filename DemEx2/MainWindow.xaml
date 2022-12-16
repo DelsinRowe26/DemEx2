@@ -9,9 +9,7 @@
     <Grid>
         <Button x:Name="btnRegistrationAutorization" Content="Авторизация&#xA;Регистрация" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="895,10,0,0" VerticalAlignment="Top" Width="92" FontWeight="Bold" Height="44" Foreground="#FF0000CC" FontFamily="Comic Sans MS" Click="btnRegistrationAutorization_Click"/>
         <DatePicker x:Name="FilterDate" HorizontalAlignment="Left" Margin="192,20,0,0" VerticalAlignment="Top" Width="125" Height="24" FontFamily="Comic Sans MS" SelectedDateFormat="Long" DisplayDate="2022-08-12"/>
-        <ComboBox x:Name="cmbFilterDirection" HorizontalAlignment="Left" Margin="43,20,0,0" VerticalAlignment="Top" Width="125" Height="24" FontFamily="Comic Sans MS">
-
-        </ComboBox>
+        <ComboBox x:Name="cmbFilterDirection" HorizontalAlignment="Left" Margin="43,20,0,0" VerticalAlignment="Top" Width="125" Height="24" FontFamily="Comic Sans MS" SelectionChanged="cmbFilterDirection_SelectionChanged"/>
         <ListView x:Name="lvEvent" Margin="10,58,10,27" HorizontalAlignment="Center" Foreground="Black" FontFamily="Comic Sans MS">
             <ListView.View>
                 <GridView>
