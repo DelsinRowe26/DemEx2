@@ -19,7 +19,7 @@ namespace DemEx2
 			sqlConn = new SqlConnection(sql);
 		}
 
-		public static void LoadedDB(string sql,string nameTable, out DataTable dt)
+		public static void LoadedDB(string sql,string nameTable, out DataTable dt)//предназначен при загрузке и выводе определенной таблицы
 		{
 			
 			sqlConn = new SqlConnection(sql);
@@ -37,7 +37,7 @@ namespace DemEx2
 			adapter.Fill(dt);
 		}
 
-		public static void DateFilter(string sql, string nameTable , string Date, out DataTable dt)
+		public static void DateFilter(string sql, string nameTable , string Date, out DataTable dt)//фильтр по дате
 		{
 			sqlConn = new SqlConnection(sql);
 
@@ -53,7 +53,7 @@ namespace DemEx2
 			adapter.Fill(dt);
 		}
 
-		public static void EventFilter(string sql, string nameTable, string nameEvent, out DataTable dt)
+		public static void EventFilter(string sql, string nameTable, string nameEvent, out DataTable dt)//фильтр по событиям
 		{
 			sqlConn = new SqlConnection(sql);
 
@@ -69,7 +69,7 @@ namespace DemEx2
 			adapter.Fill(dt);
 		}
 
-		public static void SQLQueryAutorization(string id, string password, string nameTable, string nameColumnMail, string nameColumnPassword, out bool Autorization)
+		public static void SQLQueryAutorization(string id, string password, string nameTable, string nameColumnMail, string nameColumnPassword, out bool Autorization)//отправление sql-запросов на авторизацию
 		{
 			string sqlQuery = "SELECT * FROM [dbo].[" + nameTable + "] WHERE [" + nameColumnMail + "]= '" + id + "' and [" + nameColumnPassword + "]='" + password + "'";
 			
