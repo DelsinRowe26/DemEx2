@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+//using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
@@ -11,12 +12,27 @@ using System.Runtime.Remoting.Contexts;
 
 namespace DemEx2
 {
-	internal class DBConnect
+	public class DBConnect
 	{
 		public static SqlConnection sqlConn;
 		public static void DataBaseConn(string sql)
 		{
 			sqlConn = new SqlConnection(sql);
+		}
+
+		public static bool DBC(string sql)
+		{
+			sqlConn = new SqlConnection(sql);
+			try
+			{
+				sqlConn.Open();
+				sqlConn.Close();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public static void LoadedDB(string sql,string nameTable, out DataTable dt)//предназначен при загрузке и выводе определенной таблицы
